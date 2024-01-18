@@ -10,7 +10,7 @@ function HomePage() {
         className="w-dvw h-dvh absolute z-10 top-0 left-0"
       />
 
-      <section className="z-20 w-[85%] h-[80%] mx-auto text-white text-center flex flex-col items-center justify-center overflow-hidden gap-8">
+      <section className="z-20 w-[85%] h-max mx-auto text-white text-center flex flex-col items-center justify-center overflow-hidden mb-20">
         <div className="h-max flex flex-col justify-around">
           <h3 className="text-balance text-xl uppercase tracking-widest">
             So, you want to travel to
@@ -25,14 +25,16 @@ function HomePage() {
             world experience!
           </p>
         </div>
+      </section>
 
-        <div className="flex justify-center items-center w-full h-60 relative">
-          <div id="container-explore" className="w-40 h-40 rounded-full bg-white/60 absolute"></div>
-          <button className="relative w-40 h-40 bg-white rounded-full text-black text-2xl z-10 font-Bellefair uppercase">
+      <div className="w-full absolute bottom-[8%]">
+        <div className="h-full w-full flex justify-center items-end relative">
+          <div id="container-explore" className="absolute z-10 bg-white/60 w-36 h-36 rounded-full"></div>
+          <button className="relative w-36 h-36 bg-white rounded-full text-black text-2xl z-20 font-Bellefair uppercase">
             Explore
           </button>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
