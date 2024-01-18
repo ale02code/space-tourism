@@ -13,7 +13,10 @@ function Header() {
   return (
     <header className="w-screen m-auto h-24 flex items-center justify-between px-[10%] z-50 relative">
       <img src={logoMainHeader} alt="icon-main" className="h-4/6" />
-      <i className="fa-solid fa-caret-down text-5xl text-white" onClick={handleMenu}></i>
+      <i
+        className="fa-solid fa-caret-down text-5xl text-white"
+        onClick={handleMenu}
+      ></i>
       <nav
         id="nav"
         className="h-dvh w-dvw bg-black absolute right-0 top-0 -translate-y-full transition-transform duration-500"

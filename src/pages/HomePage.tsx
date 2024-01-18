@@ -24,7 +24,9 @@ function HomePage() {
           </p>
         </div>
 
-        <button className="w-36 h-36 bg-white rounded-full mt-6 text-black text-2xl">Explore</button>
+        <button className="w-36 h-36 bg-white rounded-full mt-6 text-black text-2xl">
+          Explore
+        </button>
       </section>
     </div>
   );
