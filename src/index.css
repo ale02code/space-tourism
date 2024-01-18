@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#container-explore {
+  animation: spin 1.5s infinite alternate;
+}
+
+@keyframes spin {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.4);
+  }
+}

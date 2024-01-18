@@ -4,10 +4,10 @@ import HomePage from "./pages/HomePage.tsx";
 
 function App() {
   return (
-    <React.Fragment>
+    <div className="font-Barlow">
       <Header />
       <HomePage />
-    </React.Fragment>
+    </div>
   );
 }
 

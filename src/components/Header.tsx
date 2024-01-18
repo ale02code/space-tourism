@@ -23,7 +23,7 @@ function Header() {
       >
         <ul className="text-white h-full mx-auto flex flex-col justify-center items-center text-3xl gap-4">
           <i
-            className="fa-solid fa-xmark absolute right-7 top-8 text-5xl"
+            className="fa-solid fa-xmark absolute right-8 top-8 text-5xl"
             onClick={handleMenu}
           ></i>
 
