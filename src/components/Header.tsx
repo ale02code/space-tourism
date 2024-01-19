@@ -2,7 +2,7 @@ import React from "react";
 import logoMainHeader from "../assets/shared/logo.svg";
 
 function Header() {
-  const handleMenu = () => {
+  const changeClassToVisibility = () => {
     const nav = document.getElementById("nav");
     const checkMenu = nav?.classList.contains("-translate-y-full");
     checkMenu
@@ -10,10 +10,29 @@ function Header() {
       : nav?.classList.replace("translate-y-0", "-translate-y-full");
   };
 
+  const animationToOpenIcon = () => {
+    const openMenu = document.getElementById("open-menu");
+    openMenu?.addEventListener("click", () => {
+      openMenu.style.animation = "rotate .5s forwards";
+    });
+
+    setTimeout(() => {
+      openMenu.style.animation = "none";
+    }, 600);
+  };
+
+  const handleMenu = () => {
+    setTimeout(() => {
+      changeClassToVisibility();
+      animationToOpenIcon();
+    }, 600);
+  };
+
   return (
     <header className="w-screen m-auto h-24 flex items-center justify-between px-[10%] z-50 relative">
       <img src={logoMainHeader} alt="icon-main" className="h-4/6" />
       <i
+        id="open-menu"
         className="fa-solid fa-caret-down text-5xl text-white"
         onClick={handleMenu}
       ></i>
