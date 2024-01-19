@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logoMainHeader from "../assets/shared/logo.svg";
 
 function Header() {
@@ -10,30 +10,33 @@ function Header() {
       : nav?.classList.replace("translate-y-0", "-translate-y-full");
   };
 
-  const animationToOpenIcon = () => {
+  
+  useEffect(() => {
     const openMenu = document.getElementById("open-menu");
+
     openMenu?.addEventListener("click", () => {
       openMenu.style.animation = "rotate .5s forwards";
     });
 
-    setTimeout(() => {
+    openMenu?.addEventListener("animationend", () => {
       openMenu.style.animation = "none";
-    }, 600);
-  };
+    });
+  }, []);
 
   const handleMenu = () => {
     setTimeout(() => {
       changeClassToVisibility();
-      animationToOpenIcon();
-    }, 600);
+    }, 500);
   };
+
+  const underLine: string = `after:content-[''] after:block after:h-1 after:w-0 after:bg-white after:transition-all after:duration-500 hover:after:w-full`;
 
   return (
     <header className="w-screen m-auto h-24 flex items-center justify-between px-[10%] z-50 relative">
       <img src={logoMainHeader} alt="icon-main" className="h-4/6" />
       <i
         id="open-menu"
-        className="fa-solid fa-caret-down text-5xl text-white"
+        className="fa-solid fa-caret-down text-5xl text-white hover:cursor-pointer hover:text-gray-300"
         onClick={handleMenu}
       ></i>
       <nav
@@ -42,20 +45,28 @@ function Header() {
       >
         <ul className="text-white h-full mx-auto flex flex-col justify-center items-center text-3xl gap-4">
           <i
-            className="fa-solid fa-xmark absolute right-8 top-8 text-5xl"
+            className="fa-solid fa-xmark absolute right-[10%] top-8 text-5xl hover:cursor-pointer hover:text-gray-300"
             onClick={handleMenu}
           ></i>
 
-          <li className="hover:cursor-pointer hover:text-gray-300">
+          <li
+            className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
+          >
             <strong>00</strong> Home
           </li>
-          <li className="hover:cursor-pointer hover:text-gray-300">
+          <li
+            className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
+          >
             <strong>01</strong> Destination
           </li>
-          <li className="hover:cursor-pointer hover:text-gray-300">
+          <li
+            className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
+          >
             <strong>02</strong> Crew
           </li>
-          <li className="hover:cursor-pointer hover:text-gray-300">
+          <li
+            className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
+          >
             <strong>03</strong> Technology
           </li>
         </ul>
