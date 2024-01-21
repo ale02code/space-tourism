@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import logoMainHeader from "../assets/shared/logo.svg";
+import { NavigationContext } from "../context/NavigationContext";
+import HomePage from "pages/HomePage";
 
 function Header() {
+  const { currentPage, setCurrentPage } = useContext(NavigationContext);
+
   const changeClassToVisibility = () => {
     const nav = document.getElementById("nav");
     const checkMenu = nav?.classList.contains("-translate-y-full");
@@ -10,7 +14,6 @@ function Header() {
       : nav?.classList.replace("translate-y-0", "-translate-y-full");
   };
 
-  
   useEffect(() => {
     const openMenu = document.getElementById("open-menu");
 
