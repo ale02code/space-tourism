@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import logoMainHeader from "../assets/shared/logo.svg";
 import { NavigationContext } from "../context/NavigationContext";
-import { changeClassToVisibilityNavBar } from "../hooks/changeVisbilityNavBar.js";
+// import { changeClassToVisibilityNavBar } from "../hooks/changeVisbilityNavBar.js";
 
 function Header() {
   const { currentPage, setCurrentPage } = useContext(NavigationContext);
@@ -36,6 +36,14 @@ function Header() {
       openMenu.style.animation = "none";
     });
   }, []);
+
+  const changeClassToVisibilityNavBar = () => {
+    const nav = document.getElementById("nav");
+    const checkMenu = nav?.classList.contains("-translate-y-full");
+    checkMenu
+      ? nav?.classList.replace("-translate-y-full", "translate-y-0")
+      : nav?.classList.replace("translate-y-0", "-translate-y-full");
+  };
 
   const handleMenu = () => {
     setTimeout(() => {
