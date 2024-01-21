@@ -1,5 +1,5 @@
 import React from "react";
-import SpaceHomePhone from "../assets/home/background-home-mobile.jpg";
+import SpaceBackgroundHomePhone from "../assets/home/background-home-mobile.jpg";
 
 function HomePage() {
   return (
@@ -8,8 +8,8 @@ function HomePage() {
       className="w-dvw h-dvh absolute top-0 flex justify-center items-center flex-col Page"
     >
       <img
-        src={SpaceHomePhone}
-        alt="Space"
+        src={SpaceBackgroundHomePhone}
+        alt="Background home"
         className="w-dvw h-dvh absolute z-10 top-0 left-0"
       />
 

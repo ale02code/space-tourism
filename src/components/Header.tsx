@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import logoMainHeader from "../assets/shared/logo.svg";
 import { NavigationContext } from "../context/NavigationContext";
-// import HomePage from "pages/HomePage";
+import { changeClassToVisibilityNavBar } from "../hooks/changeVisbilityNavBar.js";
 
 function Header() {
   const { currentPage, setCurrentPage } = useContext(NavigationContext);
@@ -17,7 +17,6 @@ function Header() {
           page.classList.add("hidden");
         }
       });
-      console.log(currentPage);
     };
 
     const nav = document.getElementById("nav");
@@ -25,14 +24,6 @@ function Header() {
 
     changePageVisible(currentPage);
   }, [currentPage]);
-
-  const changeClassToVisibility = () => {
-    const nav = document.getElementById("nav");
-    const checkMenu = nav?.classList.contains("-translate-y-full");
-    checkMenu
-      ? nav?.classList.replace("-translate-y-full", "translate-y-0")
-      : nav?.classList.replace("translate-y-0", "-translate-y-full");
-  };
 
   useEffect(() => {
     const openMenu = document.getElementById("open-menu");
@@ -48,7 +39,7 @@ function Header() {
 
   const handleMenu = () => {
     setTimeout(() => {
-      changeClassToVisibility();
+      changeClassToVisibilityNavBar();
     }, 500);
   };
 
