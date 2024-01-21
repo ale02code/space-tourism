@@ -1,19 +1,23 @@
 import React, { createContext, ReactNode, useState } from "react";
 
-export const NavigationContext = createContext();
+interface NavigationContextProps {
+  currentPage: string;
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const NavigationContext = createContext<NavigationContextProps>({
+  currentPage: "home",
+  setCurrentPage: () => {},
+});
 
 interface NavigationProviderProps {
   children: ReactNode;
 }
 
-const NavigationProvider: React.FC<NavigationProviderProps> = ({
+const NavigationProvider: React.FunctionComponent<NavigationProviderProps> = ({
   children,
 }) => {
-  const [currentPage, setCurrentPage] = useState("Home");
-
-  if(currentPage == "Home") {
-    
-  }
+  const [currentPage, setCurrentPage] = useState<string>("Home");
 
   return (
     <NavigationContext.Provider value={{ currentPage, setCurrentPage }}>

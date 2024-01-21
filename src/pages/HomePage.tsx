@@ -3,7 +3,10 @@ import SpaceHomePhone from "../assets/home/background-home-mobile.jpg";
 
 function HomePage() {
   return (
-    <div className="w-dvw h-dvh absolute top-0 flex justify-center items-center flex-col">
+    <div
+      id="home"
+      className="w-dvw h-dvh absolute top-0 flex justify-center items-center flex-col Page"
+    >
       <img
         src={SpaceHomePhone}
         alt="Space"
@@ -29,7 +32,10 @@ function HomePage() {
 
       <div className="w-full absolute bottom-[8%]">
         <div className="h-full w-full flex justify-center items-end relative">
-          <div id="container-explore" className="absolute z-10 bg-white/60 w-36 h-36 rounded-full"></div>
+          <div
+            id="container-explore"
+            className="absolute z-10 bg-white/60 w-36 h-36 rounded-full"
+          ></div>
           <button className="relative w-36 h-36 bg-white rounded-full text-black text-2xl z-20 font-Bellefair uppercase">
             Explore
           </button>

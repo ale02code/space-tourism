@@ -1,10 +1,30 @@
 import React, { useEffect, useContext } from "react";
 import logoMainHeader from "../assets/shared/logo.svg";
 import { NavigationContext } from "../context/NavigationContext";
-import HomePage from "pages/HomePage";
+// import HomePage from "pages/HomePage";
 
 function Header() {
   const { currentPage, setCurrentPage } = useContext(NavigationContext);
+
+  const AllPages = document.querySelectorAll(".Page");
+
+  useEffect(() => {
+    const changePageVisible = (currentPage: string) => {
+      AllPages.forEach((page) => {
+        if (page.id === currentPage) {
+          page.classList.remove("hidden");
+        } else {
+          page.classList.add("hidden");
+        }
+      });
+      console.log(currentPage);
+    };
+
+    const nav = document.getElementById("nav");
+    nav?.classList.replace("translate-y-0", "-translate-y-full");
+
+    changePageVisible(currentPage);
+  }, [currentPage]);
 
   const changeClassToVisibility = () => {
     const nav = document.getElementById("nav");
@@ -54,21 +74,33 @@ function Header() {
 
           <li
             className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
+            onClick={() => {
+              setCurrentPage("home");
+            }}
           >
             <strong>00</strong> Home
           </li>
           <li
             className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
+            onClick={() => {
+              setCurrentPage("destination");
+            }}
           >
             <strong>01</strong> Destination
           </li>
           <li
             className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
+            onClick={() => {
+              setCurrentPage("crew");
+            }}
           >
             <strong>02</strong> Crew
           </li>
           <li
             className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
+            onClick={() => {
+              setCurrentPage("technology");
+            }}
           >
             <strong>03</strong> Technology
           </li>
