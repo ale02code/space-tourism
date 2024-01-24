@@ -4,9 +4,17 @@ import moon from "../assets/destination/image-moon.webp";
 import mars from "../assets/destination/image-mars.webp";
 import europa from "../assets/destination/image-europa.webp";
 import titan from "../assets/destination/image-titan.webp";
-
 function DestinationPage() {
-  const [useDataPlanet, setUseDataPlanet] = useState([]);
+  interface Destination {
+    name: string;
+    description: string;
+    travel: string;
+    distance: string;
+  }
+
+  const [useDataPlanet, setUseDataPlanet] = useState<Destination | undefined>(
+    undefined
+  );
   const [planet, setPlanet] = useState({
     name: moon,
     currentPlanet: 0,
