@@ -10,12 +10,9 @@ function DestinationPage() {
     description: string;
     travel: string;
     distance: string;
-    
   }
 
-  const [useDataPlanet, setUseDataPlanet] = useState<Destination | undefined>(
-    undefined
-  );
+  const [useDataPlanet, setUseDataPlanet] = useState<Destination>();
   const [planet, setPlanet] = useState({
     name: moon,
     currentPlanet: 0,
