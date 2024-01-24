@@ -14,8 +14,8 @@ function App() {
       </NavigationProvider>
       <HomePage />
       <DestinationPage />
-      <CrewPage/>
-      <Technology/>
+      <CrewPage />
+      <Technology />
     </div>
   );
 }

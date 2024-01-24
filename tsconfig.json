@@ -25,7 +25,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/assets/**/*.svg",
-    "src/assets/**/*.jpg"
+    "src/assets/**/*.jpg",
+    "src/pages/DestinationPage.tsx"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

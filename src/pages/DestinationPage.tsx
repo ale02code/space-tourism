@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SpaceBackgroundDestinationPhone from "../assets/destination/background-destination-mobile.jpg";
-import MoonImage from "../assets/destination/image-moon.png";
+import moon from "../assets/destination/image-moon.webp";
+import mars from "../assets/destination/image-mars.webp";
+import europa from "../assets/destination/image-europa.webp";
+import titan from "../assets/destination/image-titan.webp";
+
 function DestinationPage() {
+  const [useDataPlanet, setUseDataPlanet] = useState([]);
+  const [planet, setPlanet] = useState({
+    name: moon,
+    currentPlanet: 0,
+  });
+
+  useEffect(() => {
+    fetch("../data.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const { destinations } = data;
+        setUseDataPlanet(destinations[planet.currentPlanet]);
+      });
+  }, [planet]);
+
   return (
     <section
       id="destination"
-      className="Page hidden h-dvh w-dvw absolute top-0 left-0 flex justify-center items-center"
+      className="Page hidden h-dvh w-dvw absolute top-0 left-0"
     >
       <img
         src={SpaceBackgroundDestinationPhone}
@@ -13,48 +32,97 @@ function DestinationPage() {
         className="w-dvw h-dvh absolute top-0 left-0"
       />
 
-      <main className="w-[85%] h-[80%] mx-auto text-white text-center flex flex-col items-center justify-center relative z-20">
-        <h5>
-          <span>01</span> Pick your destination
-        </h5>
+      <main className="w-full h-[80%] mx-auto text-white text-center absolute bottom-6 left-0 z-20">
+        <div className="w-[85%] mx-auto h-full flex justify-around items-center flex-col overflow-hidden">
+          <h3 className="text-balance text-xl uppercase tracking-widest">
+            <span>01</span> Pick your destination
+          </h3>
 
-        <div className="flex justify-center items-center h-[40%] w-full">
-          <img
-            src={MoonImage}
-            alt="Moon image"
-            title="Moon"
-            className="h-full"
-          />
+          {useDataPlanet ? (
+            <div className="flex justify-center items-center h-[40%] w-full">
+              <img
+                src={planet.name}
+                alt={`${useDataPlanet?.name} image`}
+                title={useDataPlanet?.name}
+                className="h-full"
+              />
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+
+          <nav className="w-full">
+            <ul className="flex justify-around items-center">
+              <li
+                onClick={() => {
+                  setPlanet({
+                    name: moon,
+                    currentPlanet: 0,
+                  });
+                }}
+                className="tracking-wider uppercase text-2xl"
+              >
+                Moon
+              </li>
+              <li
+                onClick={() => {
+                  setPlanet({
+                    name: mars,
+                    currentPlanet: 1,
+                  });
+                }}
+                className="tracking-wider uppercase text-2xl"
+              >
+                Mars
+              </li>
+              <li
+                onClick={() => {
+                  setPlanet({
+                    name: europa,
+                    currentPlanet: 2,
+                  });
+                }}
+                className="tracking-wider uppercase text-2xl"
+              >
+                Europa
+              </li>
+              <li
+                onClick={() => {
+                  setPlanet({
+                    name: titan,
+                    currentPlanet: 3,
+                  });
+                }}
+                className="tracking-wider uppercase text-2xl"
+              >
+                Titan
+              </li>
+            </ul>
+          </nav>
+
+          <article className="flex justify-around items-center flex-col">
+            <section>
+              <strong className="text-5xl uppercase tracking-wide font-Bellefair">
+                {useDataPlanet?.name}
+              </strong>
+              <p className="text-pretty text-xl">
+                {useDataPlanet?.description}
+              </p>
+            </section>
+
+            <hr className="w-full my-3 text-gray-600" />
+
+            <section>
+              <strong className="text-3xl uppercase font-Bellefair">
+                {useDataPlanet?.travel}
+              </strong>
+              <br />
+              <strong className="text-3xl uppercase font-Bellefair">
+                {useDataPlanet?.distance}
+              </strong>
+            </section>
+          </article>
         </div>
-
-        <nav className="w-full">
-          <ul className="flex justify-normal items-center">
-            <li>Moon</li>
-            <li>Mars</li>
-            <li>Europa</li>
-            <li>Titan</li>
-          </ul>
-        </nav>
-
-        <article>
-          <section>
-            <strong>Moon</strong>
-            <p>
-              See our planet as you’ve never seen it before. A perfect relaxing
-              trip away to help regain perspective and come back refreshed.
-              While you’re there, take in some history by visiting the Luna 2
-              and Apollo 11 landing sites.
-            </p>
-          </section>
-
-          <hr />
-
-          <section>
-            <strong>AVG, DISTANCE</strong>
-            <br />
-            <strong>225 MIL. KM</strong>
-          </section>
-        </article>
       </main>
     </section>
   );
