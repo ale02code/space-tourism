@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import logoMainHeader from "../assets/shared/logo.svg";
 import { NavigationContext } from "../context/NavigationContext";
-// import { changeClassToVisibilityNavBar } from "../hooks/changeVisbilityNavBar.js";
 
 function Header() {
   const { currentPage, setCurrentPage } = useContext(NavigationContext);
