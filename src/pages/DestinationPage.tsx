@@ -10,6 +10,7 @@ function DestinationPage() {
     description: string;
     travel: string;
     distance: string;
+    
   }
 
   const [useDataPlanet, setUseDataPlanet] = useState<Destination | undefined>(
