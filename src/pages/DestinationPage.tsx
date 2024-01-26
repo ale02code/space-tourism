@@ -19,7 +19,7 @@ function DestinationPage() {
   });
 
   useEffect(() => {
-    fetch("../data.json")
+    fetch("/src/data.json")
       .then((res) => res.json())
       .then((data) => {
         const { destinations } = data;
