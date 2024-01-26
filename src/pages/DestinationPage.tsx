@@ -4,6 +4,7 @@ import moon from "../assets/destination/image-moon.webp";
 import mars from "../assets/destination/image-mars.webp";
 import europa from "../assets/destination/image-europa.webp";
 import titan from "../assets/destination/image-titan.webp";
+
 function DestinationPage() {
   interface Destination {
     name: string;
@@ -19,7 +20,7 @@ function DestinationPage() {
   });
 
   useEffect(() => {
-    fetch("/src/data.json")
+    fetch("src/data.json")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res}`);
