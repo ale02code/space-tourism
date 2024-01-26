@@ -19,8 +19,13 @@ function DestinationPage() {
   });
 
   useEffect(() => {
-    fetch("/src/data.json")
-      .then((res) => res.json())
+    fetch(`${process.env.PUBLIC_URL}/data.json`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch data: ${res}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         const { destinations } = data;
         setUseDataPlanet(destinations[planet.currentPlanet]);

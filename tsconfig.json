@@ -19,14 +19,21 @@
     "baseUrl": "./src",
     "outDir": "./dist",
     "paths": {
-      "assets/*": ["assets/*"]
+      "assets/*": ["assets/*"],
+      "components/*": ["components/*"],
+      "data/*": ["data/*"],
+      "hooks/*": ["hooks/*"],
+      "pages/*": ["pages/*"],
+      "services/*": ["services/*"],
+      "utils/*": ["utils/*"]
     }
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/assets/**/*.svg",
-    "src/assets/**/*.jpg"
+    "src/assets/**/*.jpg", 
+    "src/**/*.json",
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
