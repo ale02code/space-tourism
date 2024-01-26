@@ -1,7 +1,18 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from "vite";
+import React from "@vitejs/plugin-react-swc";
+// import copy from "rollup-plugin-copy";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [React()],
+
+  // build: {
+  //   rollupOptions: {
+  //     plugins: [
+  //       copy({
+  //         targets: [{ src: "src/data.json", dest: "dist" }],
+  //         hook: "writeBundle",
+  //       }),
+  //     ],
+  //   },
+  // },
+});
