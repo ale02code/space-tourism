@@ -19,7 +19,7 @@ function DestinationPage() {
   });
 
   useEffect(() => {
-    fetch("../data.json")
+    fetch("/src/data.json")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res}`);
