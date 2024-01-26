@@ -1,4 +1,4 @@
 {
   "version": 2,
-  "builds": [{ "src": "/src/data.json", "use": "@now/static" }]
+  "builds": [{ "src": "./src/data.json", "use": "@now/static" }]
 }
