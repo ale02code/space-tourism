@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "builds": [
-    { "src": "/data.json", "use": "@now/static" },
-    { "src": "/public/**", "use": "@now/static" }
-  ]
-}
