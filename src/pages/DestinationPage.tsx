@@ -45,7 +45,7 @@ function DestinationPage() {
           </h3>
 
           {useDataPlanet ? (
-            <div className="flex justify-center items-center h-[40%] w-full">
+            <div className="flex justify-center items-center h-[35%] w-full">
               <img
                 src={planet.name}
                 alt={`${useDataPlanet?.name} image`}
