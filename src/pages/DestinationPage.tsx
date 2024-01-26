@@ -44,8 +44,8 @@ function DestinationPage() {
         className="w-dvw h-dvh absolute top-0 left-0"
       />
 
-      <main className="w-full h-[85%] mx-auto text-white text-center absolute bottom-3 left-0 z-20">
-        <div className="w-[85%] mx-auto h-full flex justify-around items-center flex-col overflow-hidden">
+      <main className="w-full h-[85%] mx-auto text-white text-center absolute bottom-0 left-0 z-20">
+        <div className="w-[85%] mx-auto h-full flex justify-evenly items-center flex-col overflow-hidden">
           <h3 className="text-balance text-xl uppercase tracking-widest">
             <span>01</span> Pick your destination
           </h3>
