@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SpaceBackgroundDestinationPhone from "../assets/destination/background-destination-mobile.jpg";
+import { TitleSection } from "../components/TitleSection";
 import moon from "../assets/destination/image-moon.webp";
 import mars from "../assets/destination/image-mars.webp";
 import europa from "../assets/destination/image-europa.webp";
@@ -46,9 +47,10 @@ function DestinationPage() {
 
       <main className="w-full h-[87%] mx-auto text-white text-center absolute bottom-0 left-0 z-20">
         <div className="w-[85%] mx-auto h-full flex justify-evenly items-center flex-col overflow-hidden">
-          <h3 className="text-balance text-xl uppercase tracking-widest">
-            <span>01</span> Pick your destination
-          </h3>
+          <TitleSection
+            numberSection={1}
+            titleSection="Pick your destination"
+          />
 
           {useDataPlanet ? (
             <div className="flex justify-center items-center h-[35%] w-full">
