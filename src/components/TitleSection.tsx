@@ -11,7 +11,7 @@ export function TitleSection({
 }: TitleSectionProps) {
   return (
     <h4 className="text-balance text-xl uppercase tracking-widest text-white font-semibold">
-      <span className="text-xl text-neutral-500 mr-5">
+      <span className="text-xl text-neutral-400 mr-5">
         {numberSection < 10 ? `0${numberSection}` : numberSection}
       </span>
       {titleSection}
