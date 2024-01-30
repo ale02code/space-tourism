@@ -6,7 +6,7 @@ import crewMark from "../assets/crew/image-mark-shuttleworth.webp";
 import crewVictor from "../assets/crew/image-victor-glover.webp";
 import crewAnsary from "../assets/crew/image-anousheh-ansari.webp";
 
-const API_ROUTE: string = "src/data.json";
+const API_ROUTE: string = "/data.json";
 
 function CrewPage() {
   //* fetching data from API state
