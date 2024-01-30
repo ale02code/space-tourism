@@ -8,27 +8,28 @@ import crewAnsary from "../assets/crew/image-anousheh-ansari.webp";
 
 const API_ROUTE: string = "/data.json";
 
-function CrewPage() {
-  //* fetching data from API state
-  const [useDataCrew, setUseDataCrew] = useState([]);
+interface Crew {
+  name: string;
+  role: string;
+  bio: string;
+}
 
-  //* Selected Employee State
+function CrewPage() {
+  const [crewMembers, setCrewMembers] = useState<Crew[]>([]);
   const [selectedEmployee, setSelectedEmployee] = useState(0);
 
   const employeeSelectedImg = () => {
     switch (selectedEmployee) {
-      case 0: {
+      case 0:
         return crewDouglas;
-      }
-      case 1: {
+      case 1:
         return crewMark;
-      }
-      case 2: {
+      case 2:
         return crewVictor;
-      }
-      case 3: {
+      case 3:
         return crewAnsary;
-      }
+      default:
+        return "";
     }
   };
 
@@ -42,9 +43,11 @@ function CrewPage() {
       })
       .then((data) => {
         const { crew } = data;
-        setUseDataCrew(crew[selectedEmployee]);
+        setCrewMembers(crew);
       });
-  }, [selectedEmployee]);
+  }, []);
+
+  const selectedCrewMember = crewMembers[selectedEmployee];
 
   return (
     <section
@@ -79,11 +82,15 @@ function CrewPage() {
         <section className="text-center uppercase">
           <div className="mb-3">
             <h3 className="font-Bellefair text-xl text-neutral-400">
-              {useDataCrew.role}
+              {selectedCrewMember?.role || ""}
             </h3>
-            <h5 className="font-Bellefair text-3xl">{useDataCrew.name}</h5>
+            <h5 className="font-Bellefair text-3xl">
+              {selectedCrewMember?.name || ""}
+            </h5>
           </div>
-          <p className="text-balance text-lg normal-case">{useDataCrew.bio}</p>
+          <p className="text-balance text-lg normal-case">
+            {selectedCrewMember?.bio || ""}
+          </p>
         </section>
       </article>
     </section>
