@@ -9,11 +9,28 @@ import crewAnsary from "../assets/crew/image-anousheh-ansari.webp";
 const API_ROUTE: string = "src/data.json";
 
 function CrewPage() {
+  //* fetching data from API state
   const [useDataCrew, setUseDataCrew] = useState([]);
-  const [numberEmployeeCrew, setNumberEmployeeCrew] = useState({
-    currentCrew: 0,
-    imageEmployee: crewDouglas,
-  });
+
+  //* Selected Employee State
+  const [selectedEmployee, setSelectedEmployee] = useState(0);
+
+  const employeeSelectedImg = () => {
+    switch (selectedEmployee) {
+      case 0: {
+        return crewDouglas;
+      }
+      case 1: {
+        return crewMark;
+      }
+      case 2: {
+        return crewVictor;
+      }
+      case 3: {
+        return crewAnsary;
+      }
+    }
+  };
 
   useEffect(() => {
     fetch(API_ROUTE)
@@ -25,22 +42,9 @@ function CrewPage() {
       })
       .then((data) => {
         const { crew } = data;
-        setUseDataCrew(crew[numberEmployeeCrew.currentCrew]);
+        setUseDataCrew(crew[selectedEmployee]);
       });
-  }, [numberEmployeeCrew]);
-
-  const getID = (id: number) => {
-    const crewEmployee = document.querySelectorAll(".select-crew");
-    crewEmployee.forEach((employee) => {
-      if (employee.id === id) {
-        employee.classList.add("active");
-        console.log(true);
-      } else {
-        employee.classList.remove("active");
-        console.log(false);
-      }
-    });
-  };
+  }, [selectedEmployee]);
 
   return (
     <section
@@ -57,60 +61,19 @@ function CrewPage() {
         <TitleSection numberSection={2} titleSection="meet your crew" />
 
         <figure className="h-[40%] my-5">
-          <img
-            className="h-full"
-            src={numberEmployeeCrew.imageEmployee}
-            alt="employee"
-          />
+          <img className="h-full" src={employeeSelectedImg()} alt="employee" />
         </figure>
 
         <div className="mb-5 flex gap-3">
-          <div
-            id="1"
-            className="h-6 w-6 bg-white rounded-full select-crew"
-            onClick={() => {
-              setNumberEmployeeCrew({
-                currentCrew: 0,
-                imageEmployee: crewDouglas,
-              });
-
-              getID(0);
-            }}
-          ></div>
-          <div
-            id="2"
-            className="h-6 w-6 bg-neutral-400 rounded-full select-crew"
-            onClick={() => {
-              setNumberEmployeeCrew({
-                currentCrew: 1,
-                imageEmployee: crewMark,
-              });
-
-              getID(1);
-            }}
-          ></div>
-          <div
-            id="3"
-            className="h-6 w-6 bg-neutral-400 rounded-full select-crew"
-            onClick={() => {
-              setNumberEmployeeCrew({
-                currentCrew: 2,
-                imageEmployee: crewVictor,
-              });
-              getID(2);
-            }}
-          ></div>
-          <div
-            id="4"
-            className="h-6 w-6 bg-neutral-400 rounded-full select-crew"
-            onClick={() => {
-              setNumberEmployeeCrew({
-                currentCrew: 3,
-                imageEmployee: crewAnsary,
-              });
-              getID(3);
-            }}
-          ></div>
+          {[0, 1, 2, 3].map((employeeID) => (
+            <div
+              key={employeeID}
+              className={`h-6 w-6 rounded-full hover:cursor-pointer ${
+                selectedEmployee === employeeID ? "bg-neutral-400" : "bg-white"
+              }`}
+              onClick={() => setSelectedEmployee(employeeID)}
+            ></div>
+          ))}
         </div>
 
         <section className="text-center uppercase">
