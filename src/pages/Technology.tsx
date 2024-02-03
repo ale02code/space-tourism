@@ -13,7 +13,7 @@ interface Technology {
 }
 
 function Technology() {
-  const [technology, setTechnology] = useState();
+  const [technology, setTechnology] = useState<Technology | undefined>();
   const [selectedTechnology, setSelectedTechnology] = useState(0);
 
   useEffect(() => {
