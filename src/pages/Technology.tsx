@@ -66,10 +66,18 @@ function Technology() {
           {[0, 1, 2].map((item) => (
             <div
               key={item}
-              className="text-white h-14 w-14 border-white border flex justify-center items-center rounded-full hover:cursor-pointer"
+              className={`text-white h-14 w-14 border-white border flex justify-center items-center rounded-full hover:cursor-pointer ${
+                item === selectedTechnology ? "bg-white" : "bg-transparent"
+              }`}
               onClick={() => setSelectedTechnology(item)}
             >
-              <h3 className="text-2xl">{item + 1}</h3>
+              <h3
+                className={`text-3xl ${
+                  item === selectedTechnology && "text-black"
+                }`}
+              >
+                {item + 1}
+              </h3>
             </div>
           ))}
         </nav>
