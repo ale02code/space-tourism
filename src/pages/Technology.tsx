@@ -22,7 +22,6 @@ function Technology() {
       .then((data) => {
         const { technology } = data;
         setTechnology(technology[selectedTechnology]);
-        console.log(technology[selectedTechnology]);
       });
   }, [selectedTechnology]);
 

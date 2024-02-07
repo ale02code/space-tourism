@@ -11,6 +11,9 @@ export default {
         Bellefair: ['Bellefair', 'serif'],
       },
     },
+    screens: {
+      tbl: { min: '450px', max: '1023px' },
+    }
   },
   plugins: [],
 }

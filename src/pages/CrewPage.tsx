@@ -28,8 +28,6 @@ function CrewPage() {
         return crewVictor;
       case 3:
         return crewAnsary;
-      default:
-        return "";
     }
   };
 

@@ -62,7 +62,7 @@ function Header() {
       ></i>
       <nav
         id="nav"
-        className="h-dvh w-dvw bg-black absolute right-0 top-0 -translate-y-full transition-transform duration-500"
+        className="h-dvh w-dvw bg-black absolute right-0 top-0 -translate-y-full transition-transform duration-500 ease-in-out"
       >
         <ul className="text-white h-full mx-auto flex flex-col justify-center items-center text-3xl gap-4">
           <i
