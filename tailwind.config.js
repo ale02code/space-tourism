@@ -13,6 +13,7 @@ export default {
     },
     screens: {
       tbl: { min: '450px', max: '1023px' },
+      pc: '1024px',
     }
   },
   plugins: [],

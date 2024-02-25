@@ -53,20 +53,20 @@ function Header() {
   const underLine: string = `after:content-[''] after:block after:h-1 after:w-0 after:bg-white after:transition-all after:duration-500 hover:after:w-full`;
 
   return (
-    <header className="w-screen m-auto h-24 flex items-center justify-between px-[10%] z-50 absolute top-0">
+    <header className="w-screen m-auto h-24 flex items-center justify-between px-[10%] z-50 absolute top-0 tbl:h-32">
       <img src={logoMainHeader} alt="icon-main" className="h-4/6" />
       <i
         id="open-menu"
-        className="fa-solid fa-caret-down text-5xl text-white hover:cursor-pointer hover:text-gray-300"
+        className="fa-solid fa-caret-down text-5xl text-white hover:cursor-pointer hover:text-gray-300 tbl:hidden"
         onClick={handleMenu}
       ></i>
       <nav
         id="nav"
-        className="h-dvh w-dvw bg-black absolute right-0 top-0 -translate-y-full transition-transform duration-500 ease-in-out"
+        className="h-dvh w-dvw bg-black absolute right-0 top-0 -translate-y-full transition-transform duration-500 ease-in-out tbl:translate-y-0 tbl:h-28 tbl:w-max tbl:bg-white/10 tbl:backdrop-blur-xl tbl:px-8 "
       >
-        <ul className="text-white h-full mx-auto flex flex-col justify-center items-center text-3xl gap-4">
+        <ul className="text-white h-full mx-auto flex flex-col justify-center items-center text-3xl gap-4 tbl:flex-row tbl:gap-6">
           <i
-            className="fa-solid fa-xmark absolute right-[10%] top-8 text-5xl hover:cursor-pointer hover:text-gray-300"
+            className="fa-solid fa-xmark absolute right-[10%] top-8 text-5xl hover:cursor-pointer hover:text-gray-300 tbl:hidden"
             onClick={handleMenu}
           ></i>
 
@@ -76,7 +76,7 @@ function Header() {
               setCurrentPage("home");
             }}
           >
-            <strong>00</strong> Home
+            <strong className="tbl:hidden pc:hidden">00</strong> Home
           </li>
           <li
             className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
@@ -84,7 +84,7 @@ function Header() {
               setCurrentPage("destination");
             }}
           >
-            <strong>01</strong> Destination
+            <strong className="tbl:hidden pc:hidden">01</strong> Destination
           </li>
           <li
             className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
@@ -92,7 +92,7 @@ function Header() {
               setCurrentPage("crew");
             }}
           >
-            <strong>02</strong> Crew
+            <strong className="tbl:hidden pc:hidden">02</strong> Crew
           </li>
           <li
             className={`hover:cursor-pointer hover:text-gray-300 ${underLine}`}
@@ -100,7 +100,7 @@ function Header() {
               setCurrentPage("technology");
             }}
           >
-            <strong>03</strong> Technology
+            <strong className="tbl:hidden pc:hidden">03</strong> Technology
           </li>
         </ul>
       </nav>
