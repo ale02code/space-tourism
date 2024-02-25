@@ -1,5 +1,5 @@
 import React from "react";
-import SpaceBackgroundHomePhone from "../assets/home/background-home-mobile.jpg";
+// import SpaceBackgroundHomePhone from "../assets/home/background-home-mobile.jpg";
 import SpaceBackgroundHomeTablet from "../assets/home/background-home-tablet.jpg";
 
 function HomePage() {
