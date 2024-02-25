@@ -62,7 +62,7 @@ function DestinationPage() {
               />
             </div>
           ) : (
-            <p>Loading...</p>
+            <p className="tbl:text-3xl">Loading...</p>
           )}
 
           <nav className="w-full">
@@ -74,7 +74,7 @@ function DestinationPage() {
                     currentPlanet: 0,
                   });
                 }}
-                className="tracking-wider uppercase text-2xl"
+                className="tracking-wider uppercase text-2xl tbl:text-4xl"
               >
                 Moon
               </li>
@@ -85,7 +85,7 @@ function DestinationPage() {
                     currentPlanet: 1,
                   });
                 }}
-                className="tracking-wider uppercase text-2xl"
+                className="tracking-wider uppercase text-2xl tbl:text-4xl"
               >
                 Mars
               </li>
@@ -96,7 +96,7 @@ function DestinationPage() {
                     currentPlanet: 2,
                   });
                 }}
-                className="tracking-wider uppercase text-2xl"
+                className="tracking-wider uppercase text-2xl tbl:text-4xl"
               >
                 Europa
               </li>
@@ -107,7 +107,7 @@ function DestinationPage() {
                     currentPlanet: 3,
                   });
                 }}
-                className="tracking-wider uppercase text-2xl"
+                className="tracking-wider uppercase text-2xl tbl:text-4xl"
               >
                 Titan
               </li>
@@ -119,7 +119,7 @@ function DestinationPage() {
               <strong className="text-5xl uppercase tracking-wide font-Bellefair">
                 {useDataPlanet?.name}
               </strong>
-              <p className="text-pretty text-xl">
+              <p className="text-pretty text-xl tbl:text-2xl">
                 {useDataPlanet?.description}
               </p>
             </section>
@@ -127,11 +127,11 @@ function DestinationPage() {
             <hr className="w-full my-3 text-gray-600" />
 
             <section>
-              <strong className="text-3xl uppercase font-Bellefair">
+              <strong className="text-3xl uppercase font-Bellefair tbl:text-4xl">
                 {useDataPlanet?.travel}
               </strong>
               <br />
-              <strong className="text-3xl uppercase font-Bellefair">
+              <strong className="text-3xl uppercase font-Bellefair tbl:text-4xl">
                 {useDataPlanet?.distance}
               </strong>
             </section>
