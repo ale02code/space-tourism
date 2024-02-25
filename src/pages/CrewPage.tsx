@@ -69,7 +69,7 @@ function CrewPage() {
           {[0, 1, 2, 3].map((employeeID) => (
             <div
               key={employeeID}
-              className={`h-9 w-h-9 rounded-full hover:cursor-pointer tbl: ${
+              className={`h-6 w-6 rounded-full hover:cursor-pointer tbl:h-9 tbl:w-9 ${
                 selectedEmployee === employeeID ? "bg-neutral-400" : "bg-white"
               }`}
               onClick={() => setSelectedEmployee(employeeID)}
