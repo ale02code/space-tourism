@@ -65,7 +65,7 @@ function Technology() {
           {[0, 1, 2].map((item) => (
             <div
               key={item}
-              className={`text-white h-14 w-14 border-white border flex justify-center items-center rounded-full hover:cursor-pointer ${
+              className={`text-white h-14 w-14 border-white border flex justify-center items-center rounded-full hover:cursor-pointer tbl:h-16 tbl:w-16 ${
                 item === selectedTechnology ? "bg-white" : "bg-transparent"
               }`}
               onClick={() => setSelectedTechnology(item)}
@@ -82,14 +82,14 @@ function Technology() {
         </nav>
 
         <section className="w-[90%] mx-auto text-center my-5 text-white">
-          <p className="uppercase text-xl">The terminology...</p>
+          <p className="uppercase text-xl tbl:text-2xl">The terminology...</p>
           <h3 className="text-4xl uppercase font-Bellefair my-2">
             {technology?.name || ""}
           </h3>
-          <p className="text-xl text-pretty">{technology?.description || ""}</p>
+          <p className="text-xl text-pretty tbl:text-3xl">
+            {technology?.description || ""}
+          </p>
         </section>
-
-        <section className="w-full"></section>
       </article>
     </section>
   );
