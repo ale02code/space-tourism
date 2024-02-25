@@ -119,7 +119,7 @@ function DestinationPage() {
               <strong className="text-5xl uppercase tracking-wide font-Bellefair">
                 {useDataPlanet?.name}
               </strong>
-              <p className="text-pretty text-xl tbl:text-2xl">
+              <p className="text-pretty text-xl tbl:text-3xl">
                 {useDataPlanet?.description}
               </p>
             </section>

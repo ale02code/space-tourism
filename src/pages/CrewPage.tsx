@@ -69,7 +69,7 @@ function CrewPage() {
           {[0, 1, 2, 3].map((employeeID) => (
             <div
               key={employeeID}
-              className={`h-6 w-6 rounded-full hover:cursor-pointer ${
+              className={`h-9 w-h-9 rounded-full hover:cursor-pointer tbl: ${
                 selectedEmployee === employeeID ? "bg-neutral-400" : "bg-white"
               }`}
               onClick={() => setSelectedEmployee(employeeID)}
@@ -79,14 +79,14 @@ function CrewPage() {
 
         <section className="text-center uppercase">
           <div className="mb-3">
-            <h3 className="font-Bellefair text-xl text-neutral-400">
+            <h3 className="font-Bellefair text-xl text-neutral-400 tbl:text-2xl">
               {selectedCrewMember?.role || ""}
             </h3>
-            <h5 className="font-Bellefair text-3xl">
+            <h5 className="font-Bellefair text-3xl tbl:text-4xl">
               {selectedCrewMember?.name || ""}
             </h5>
           </div>
-          <p className="text-balance text-lg normal-case">
+          <p className="text-balance text-lg normal-case tbl:text-3xl">
             {selectedCrewMember?.bio || ""}
           </p>
         </section>
