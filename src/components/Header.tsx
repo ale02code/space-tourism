@@ -53,7 +53,7 @@ function Header() {
   const underLine: string = `after:content-[''] after:block after:h-1 after:w-0 after:bg-white after:transition-all after:duration-500 hover:after:w-full`;
 
   return (
-    <header className="w-screen m-auto h-24 flex items-center justify-between px-[10%] z-50 absolute top-0 tbl:h-32 overflow-hidden">
+    <header className="w-screen m-auto h-24 flex items-center justify-between px-[10%] z-50 absolute top-0 tbl:h-32">
       <img src={logoMainHeader} id="logo" alt="icon-main" className="h-4/6" />
       <i
         id="open-menu"

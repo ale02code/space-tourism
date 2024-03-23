@@ -14,7 +14,7 @@ function HomePage() {
         className="w-dvw h-dvh absolute z-10 top-0 left-0"
       />
 
-      <section className="z-50 w-[85%] h-max mx-auto text-white text-center flex flex-col items-center justify-center overflow-hidden mb-20 pc:items-start pc:text-left pc:m-0 pc:h-full pc:justify-end pc:mb-10">
+      <section className="z-20 w-[85%] h-max mx-auto text-white text-center flex flex-col items-center justify-center overflow-hidden mb-20 pc:items-start pc:text-left pc:m-0 pc:h-full pc:justify-end pc:mb-10">
         <div className="h-max flex flex-col justify-around pc:w-[45%] pc:gap-3">
           <h3 className="text-balance text-xl uppercase tracking-widest tbl:text-3xl">
             So, you want to travel to
