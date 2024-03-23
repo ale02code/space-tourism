@@ -21,7 +21,7 @@ function DestinationPage() {
   });
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch("/src/data.json")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Failed to fetch data: ${res}`);
@@ -37,7 +37,7 @@ function DestinationPage() {
   return (
     <section
       id="destination"
-      className="Page hidden h-dvh w-dvw absolute top-0 left-0"
+      className="Page hidden h-dvh w-dvw absolute top-0 left-0 overflow-hidden"
     >
       <img
         src={SpaceBackgroundDestinationPhone}
@@ -46,96 +46,100 @@ function DestinationPage() {
       />
 
       <main className="w-full h-[87%] mx-auto text-white text-center absolute bottom-0 left-0 z-20">
-        <div className="w-[85%] mx-auto h-full flex justify-evenly items-center flex-col overflow-hidden">
-          <TitleSection
-            numberSection={1}
-            titleSection="Pick your destination"
-          />
+        <div className="w-[85%] mx-auto h-dvh flex justify-evenly items-center flex-col overflow-hidden  pc:relative pc:flex-row">
+          <div className="w-max pc:absolute pc:top-0 pc:left-0 mt-10">
+            <TitleSection
+              numberSection={1}
+              titleSection="Pick your destination"
+            />
+          </div>
 
           {useDataPlanet ? (
-            <div className="flex justify-center items-center h-[35%] w-full">
+            <div className="flex justify-center items-center h-[35%] w-full pc:justify-center pc:w-1/2">
               <img
                 src={planet.name}
                 alt={`${useDataPlanet?.name} image`}
                 title={useDataPlanet?.name}
-                className="h-full"
+                className="h-full pc:h-max pc:max-h-96"
               />
             </div>
           ) : (
             <p className="tbl:text-3xl">Loading...</p>
           )}
 
-          <nav className="w-full">
-            <ul className="flex justify-around items-center">
-              <li
-                onClick={() => {
-                  setPlanet({
-                    name: moon,
-                    currentPlanet: 0,
-                  });
-                }}
-                className="tracking-wider uppercase text-2xl tbl:text-4xl"
-              >
-                Moon
-              </li>
-              <li
-                onClick={() => {
-                  setPlanet({
-                    name: mars,
-                    currentPlanet: 1,
-                  });
-                }}
-                className="tracking-wider uppercase text-2xl tbl:text-4xl"
-              >
-                Mars
-              </li>
-              <li
-                onClick={() => {
-                  setPlanet({
-                    name: europa,
-                    currentPlanet: 2,
-                  });
-                }}
-                className="tracking-wider uppercase text-2xl tbl:text-4xl"
-              >
-                Europa
-              </li>
-              <li
-                onClick={() => {
-                  setPlanet({
-                    name: titan,
-                    currentPlanet: 3,
-                  });
-                }}
-                className="tracking-wider uppercase text-2xl tbl:text-4xl"
-              >
-                Titan
-              </li>
-            </ul>
-          </nav>
+          <div className="pc:w-[40%] pc:h-full pc:flex pc:items-center pc:flex-col pc:justify-center pc:gap-5">
+            <nav className="w-full">
+              <ul className="flex justify-around items-center pc:justify-between">
+                <li
+                  onClick={() => {
+                    setPlanet({
+                      name: moon,
+                      currentPlanet: 0,
+                    });
+                  }}
+                  className="tracking-wider uppercase text-2xl tbl:text-4xl pc:text-3xl pc:hover:cursor-pointer"
+                >
+                  Moon
+                </li>
+                <li
+                  onClick={() => {
+                    setPlanet({
+                      name: mars,
+                      currentPlanet: 1,
+                    });
+                  }}
+                  className="tracking-wider uppercase text-2xl tbl:text-4xl pc:text-3xl pc:hover:cursor-pointer"
+                >
+                  Mars
+                </li>
+                <li
+                  onClick={() => {
+                    setPlanet({
+                      name: europa,
+                      currentPlanet: 2,
+                    });
+                  }}
+                  className="tracking-wider uppercase text-2xl tbl:text-4xl pc:text-3xl pc:hover:cursor-pointer"
+                >
+                  Europa
+                </li>
+                <li
+                  onClick={() => {
+                    setPlanet({
+                      name: titan,
+                      currentPlanet: 3,
+                    });
+                  }}
+                  className="tracking-wider uppercase text-2xl tbl:text-4xl pc:text-3xl pc:hover:cursor-pointer"
+                >
+                  Titan
+                </li>
+              </ul>
+            </nav>
 
-          <article className="flex justify-around items-center flex-col">
-            <section>
-              <strong className="text-5xl uppercase tracking-wide font-Bellefair">
-                {useDataPlanet?.name}
-              </strong>
-              <p className="text-pretty text-xl tbl:text-3xl">
-                {useDataPlanet?.description}
-              </p>
-            </section>
+            <article className="flex justify-around items-center flex-col pc:text-left">
+              <section>
+                <strong className="text-5xl uppercase tracking-wide font-Bellefair pc:text-6xl">
+                  {useDataPlanet?.name}
+                </strong>
+                <p className="text-pretty text-xl tbl:text-3xl pc:text-xl">
+                  {useDataPlanet?.description}
+                </p>
+              </section>
 
-            <hr className="w-full my-3 text-gray-600" />
+              <hr className="w-full my-3 text-gray-600" />
 
-            <section>
-              <strong className="text-3xl uppercase font-Bellefair tbl:text-4xl">
-                {useDataPlanet?.travel}
-              </strong>
-              <br />
-              <strong className="text-3xl uppercase font-Bellefair tbl:text-4xl">
-                {useDataPlanet?.distance}
-              </strong>
-            </section>
-          </article>
+              <section className="pc:flex pc:justify-between pc:w-full">
+                <strong className="text-3xl uppercase font-Bellefair tbl:text-4xl">
+                  {useDataPlanet?.travel}
+                </strong>
+                <br />
+                <strong className="text-3xl uppercase font-Bellefair tbl:text-4xl">
+                  {useDataPlanet?.distance}
+                </strong>
+              </section>
+            </article>
+          </div>
         </div>
       </main>
     </section>
